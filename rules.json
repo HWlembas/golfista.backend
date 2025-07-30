@@ -1,0 +1,185 @@
+[
+  {
+    "id": "stable-center",
+    "metric": "head_sway_px",
+    "operator": ">",
+    "threshold": 25,
+    "message": "Your head moves more than ~25 px from address. Work on a steadier swing center for more repeatable contact.",
+    "why": "A stable rotation center improves consistent impact and energy transfer.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Swing stability / rotation center"
+    }
+  },
+  {
+    "id": "x-factor-low",
+    "metric": "x_factor_deg",
+    "operator": "<",
+    "threshold": 25,
+    "message": "Your X\u2011factor at the top is modest (<25\u00b0). Try to increase shoulder turn relative to pelvis for more coil.",
+    "why": "Increasing torso\u2013pelvis separation stores elastic energy for speed without overswinging.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Rotation & energy storage"
+    }
+  },
+  {
+    "id": "x-factor-high",
+    "metric": "x_factor_deg",
+    "operator": ">",
+    "threshold": 55,
+    "message": "Large X\u2011factor (>55\u00b0). Ensure flexibility and balance\u2014excess separation can hurt sequencing.",
+    "why": "More isn\u2019t always better; efficient release timing matters for control.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Sequencing"
+    }
+  },
+  {
+    "id": "shoulder-turn-low",
+    "metric": "shoulder_turn_top_deg",
+    "operator": "<",
+    "threshold": 70,
+    "message": "Shoulder turn at top appears under 70\u00b0. Complete the shoulder rotation to help power.",
+    "why": "Adequate rotation improves path control and dynamic loft.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Rotation & dynamic loft"
+    }
+  },
+  {
+    "id": "pelvis-turn-low",
+    "metric": "pelvis_turn_top_deg",
+    "operator": "<",
+    "threshold": 35,
+    "message": "Pelvis turn is limited (<35\u00b0). Let the hips turn to reduce strain and aid depth.",
+    "why": "Allowing pelvic rotation supports torso turn and consistent low point.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Pelvis rotation"
+    }
+  },
+  {
+    "id": "spine-tilt-loss",
+    "metric": "spine_tilt_change_deg",
+    "operator": ">",
+    "threshold": 6,
+    "message": "Spine angle rises >6\u00b0 from address to impact (early extension).",
+    "why": "Maintaining posture helps low-point control and centered strikes.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Impact consistency"
+    }
+  },
+  {
+    "id": "lag-proxy-low",
+    "metric": "lag_proxy_elbow_angle_top_deg",
+    "operator": ">",
+    "threshold": 165,
+    "message": "Very straight lead arm at the top (lag proxy high). Add some arm fold/width balance for a smoother release.",
+    "why": "A small amount of arm fold aids sequencing; release should occur just before impact.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Release timing"
+    }
+  },
+  {
+    "id": "release-late",
+    "metric": "release_time_ms",
+    "operator": ">",
+    "threshold": 160,
+    "message": "Release occurs relatively late (>160 ms from top). Ensure you\u2019re not holding angle too long.",
+    "why": "Timely release optimizes speed without stalling the club.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Timing & speed"
+    }
+  },
+  {
+    "id": "release-early",
+    "metric": "release_time_ms",
+    "operator": "<",
+    "threshold": 80,
+    "message": "Release is very early (<80 ms). Work on retaining angles a bit longer into the downswing.",
+    "why": "Releasing too early loses speed and can add dynamic loft.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Timing & dynamic loft"
+    }
+  },
+  {
+    "id": "plane-variance-high",
+    "metric": "swing_plane_var_deg",
+    "operator": ">",
+    "threshold": 10,
+    "message": "Arm-plane varies >10\u00b0 during downswing. Focus on a more consistent delivery plane.",
+    "why": "Consistent plane supports predictable face-to-path and contact.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Path & curvature"
+    }
+  },
+  {
+    "id": "forearm-lean-low",
+    "metric": "forearm_lean_vs_vertical_deg_at_impact",
+    "operator": "<",
+    "threshold": -5,
+    "message": "Minimal or negative forward lean at impact. Compress irons with slight forward shaft/forearm lean.",
+    "why": "Dynamic loft and ball-first contact improve flight and spin control.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Dynamic loft"
+    }
+  },
+  {
+    "id": "forearm-lean-high",
+    "metric": "forearm_lean_vs_vertical_deg_at_impact",
+    "operator": ">",
+    "threshold": 20,
+    "message": "Excessive forward lean (>20\u00b0). Watch low launch/low spin; match to club/shot intent.",
+    "why": "Too much lean reduces dynamic loft and can cause digs/thins.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Launch & spin"
+    }
+  },
+  {
+    "id": "head-sway-good",
+    "metric": "head_sway_px",
+    "operator": "<=",
+    "threshold": 15,
+    "message": "Great stability\u2014very little head sway from address.",
+    "why": "Stable center correlates with consistent strike.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Consistency"
+    }
+  },
+  {
+    "id": "x-factor-good",
+    "metric": "x_factor_deg",
+    "operator": "between",
+    "threshold": [
+      35,
+      50
+    ],
+    "message": "Efficient coil (X\u2011factor ~35\u201350\u00b0).",
+    "why": "This range balances power and control for many players.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Energy vs control"
+    }
+  },
+  {
+    "id": "plane-consistent",
+    "metric": "swing_plane_var_deg",
+    "operator": "<=",
+    "threshold": 6,
+    "message": "Downswing plane is very consistent (\u22646\u00b0 variance).",
+    "why": "Predictable plane promotes repeatable path/face at impact.",
+    "source": {
+      "work": "Dewhurst",
+      "topic": "Repeatability"
+    }
+  }
+]
