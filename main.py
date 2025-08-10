@@ -1,4 +1,3 @@
-
 import os
 import json
 import tempfile
@@ -9,13 +8,11 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-# --- Optional: preload lightweight CPU threads for Render/limited CPUs ---
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("NUMEXPR_NUM_THREADS", "1")
 
-# Ultralytics YOLOv8 Pose for server-friendly keypoints
 try:
     from ultralytics import YOLO
     YOLO_AVAILABLE = True
@@ -28,16 +25,20 @@ app = FastAPI(title="Golfista Backend", version="0.2.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://preview--golfista-swing-mentor.lovable.app",
+        "http://localhost:3000"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
-    print(f"🔥 Received file: {file.filename}")
+    print(f"🔥 Received file: {file.filename}, size: {len(await file.read())} bytes")
     return {"status": "ok"}
-# Load rules.json once
+
 RULES: List[Dict] = []
 try:
     with open("rules.json", "r") as f:
