@@ -26,7 +26,6 @@ from metrics import compute_metrics
 
 app = FastAPI(title="Golfista Backend", version="0.2.0")
 
-# Allow your frontend to call this API
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -34,7 +33,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+@app.post("/analyze")
+async def analyze(file: UploadFile = File(...)):
+    print(f"🔥 Received file: {file.filename}")
+    return {"status": "ok"}
 # Load rules.json once
 RULES: List[Dict] = []
 try:
